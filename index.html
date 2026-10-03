@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Risha Guha — Neuroscience Research</title>
+<meta name="description" content="Neuroscience research on Parkinson's, Alzheimer's and ALS, plus community work in San Diego and Lusaka, Zambia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="topbar" aria-label="Site">
+  <div class="wrap tb-row">
+    <a class="tb-name" href="index.html">Risha Guha</a>
+    <ul class="tb-links">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="community.html">Community service</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="intro">
+  <div class="intro-me">
+    <canvas id="net" aria-hidden="true"></canvas>
+    <h1 class="name"><span>Risha</span><span>Guha</span></h1>
+    <p class="role">Student Neuroscience Researcher and Community Advocate for Health and Security</p>
+    <p class="about">Del Norte High School, San Diego. I study Parkinson's disease, Alzheimer's disease and ALS, combining wet-lab experiments with computational modeling and machine learning.</p>
+    <p class="contact"><span class="email">rguha [dot] edu [at] gmail [dot] com</span></p>
+    <section class="viz-block" aria-labelledby="viz-h">
+      <div class="blk-head">
+        <h2 id="viz-h">Community Reach</h2>
+        <p>People reached, in research and through community service</p>
+      </div>
+      <div class="donuts" id="impact"></div>
+    </section>
+  </div>
+  <section class="intro-hl" aria-labelledby="hl-h">
+    <div class="blk-head">
+      <h2 id="hl-h">Honors</h2>
+      <p>Each honor links to its official source and opens in a new tab.</p>
+    </div>
+    <ul class="hl" id="honors"></ul>
+  </section>
+  <a class="scrollcue" href="#main" aria-label="Scroll down to testimonials and research">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v13M6.5 12.5 12 18l5.5-5.5"/></svg>
+  </a>
+</header>
+
+<main id="main">
+  <section class="sec wrap" aria-labelledby="tq-h">
+    <div class="sechead">
+      <h2 id="tq-h">Testimonials</h2>
+      <p>Letters from the people I worked with on my Girl Scout Gold Award and the Student Empowerment Team. Select one to read it in full.</p>
+    </div>
+    <div class="quotes" id="quotes"></div>
+  </section>
+
+  <section class="sec wrap" aria-labelledby="res-h">
+    <div class="sechead">
+      <h2 id="res-h">Research</h2>
+      <p>Six projects researching Parkinson's disease, Alzheimer's disease, ALS, and synthetic biology, combining wet lab and computational experimentation.</p>
+      <a class="more" href="research.html">All papers and posters</a>
+    </div>
+    <ul class="plist" id="projects-list"></ul>
+  </section>
+
+  <section class="sec wrap" aria-labelledby="com-h">
+    <div class="sechead">
+      <h2 id="com-h">Community service</h2>
+      <p>Advocacy efforts and leadership initiatives that left lasting impact on my community, ranging from healthcare to student empowerment to cybersecurity.</p>
+      <a class="more" href="community.html">Read the full story</a>
+    </div>
+    <div class="trio">
+      <div>
+        <h3>Girl Scout Gold Award</h3>
+        <p>I built a patient-records and visit-tracking system for community health workers at the Power of Love Foundation in Matero, a settlement in Lusaka, Zambia. It is in daily use supporting more than 620 children and adults.</p>
+        <ul>
+          <li>Serves an HIV care program of 550+ children and a mental health program of ~70 more</li>
+          <li>Named one of 50 Girl Scout Emerging Leaders in San Diego</li>
+          <li>Keynote speaker, Girl Scout Silver Award Ceremony, 2026</li>
+        </ul>
+        <a class="go" href="community.html#gold">The project and a note from Power of Love</a>
+      </div>
+      <div>
+        <h3>Student Empowerment Team</h3>
+        <p>I founded my middle school's first student leadership body at Design39Campus. It is still running today.</p>
+        <ul>
+          <li>Keynote speaker at 39X 2024, before 200+ educators and administrators</li>
+          <li>Presidential Volunteer Service Award, Gold</li>
+        </ul>
+        <a class="go" href="community.html#empowerment">How the team started</a>
+      </div>
+      <div>
+        <h3>CyberCEO</h3>
+        <p>I co-founded and lead a student-run nonprofit in cybersecurity education, serving as president and director of curriculum.</p>
+        <ul>
+          <li>2,500+ students and senior citizens taught through CyberCEO</li>
+          <li>Second Presidential Volunteer Service Award, Gold</li>
+        </ul>
+        <a class="go" href="community.html#cyberceo">CyberCEO's programs</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap" aria-labelledby="rec-h">
+    <div class="sechead">
+      <h2 id="rec-h">Additional recognition</h2>
+    </div>
+    <ul class="rec" id="recognition"></ul>
+  </section>
+</main>
+
+<dialog class="letter" id="letter" aria-labelledby="letter-h">
+  <button class="close" type="button" data-close aria-label="Close letter">&times;</button>
+  <div class="letter-in"></div>
+</dialog>
+
+<footer class="site">
+  <div class="wrap"><span>Risha Guha</span><span class="email">rguha [dot] edu [at] gmail [dot] com</span><span>San Diego, California</span></div>
+</footer>
+
+<script src="data.js"></script>
+<script src="home.js"></script>
+<script src="net.js"></script>
+</body>
+</html>
