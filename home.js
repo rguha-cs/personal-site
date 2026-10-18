@@ -9,7 +9,8 @@ const OUT_ICON = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M
   const hl = document.getElementById("honors");
   if(hl) hl.innerHTML = HONORS.map(h =>
     `<li><a href="${h.href}" target="_blank" rel="noopener">
-      <span><span class="t">${h.title}</span><span class="s">${h.source}<span class="sr"> (opens in a new tab)</span></span></span>${OUT_ICON}</a></li>`).join("");
+      <span><span class="t">${h.title}</span><span class="s">${h.source}<span class="sr"> (opens in a new tab)</span></span></span>${OUT_ICON}</a>${h.sub ? `
+      <p class="hl-sub"><a href="${h.sub.href}" target="_blank" rel="noopener">${h.sub.label}<span class="src">${h.sub.source}</span><span class="sr"> (opens in a new tab)</span>${OUT_ICON}</a></p>` : ""}</li>`).join("");
 
   const rec = document.getElementById("recognition");
   if(rec) rec.innerHTML = RECOGNITION.map(x =>

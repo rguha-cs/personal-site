@@ -424,3 +424,12 @@ blockquote.tq footer .date{display:block;color:var(--faint);font-size:.82rem;mar
 .doclinks li{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:5px 0;font-size:.9rem}
 .doclinks li span{font-size:.8rem;color:var(--faint)}
 @media (max-width:1080px){.proj .side{position:static}}
+
+/* honors: small secondary link under an honor (e.g. news coverage) */
+.hl .hl-sub{margin:-12px 0 0;padding:0 16px 16px 0;font-size:.84rem}
+.hl .hl-sub a,.hl .hl-sub a:hover,.hl .hl-sub a:focus-visible{display:inline-flex;align-items:baseline;gap:8px;padding:0;background:none;color:var(--accent);text-decoration:underline;text-decoration-color:rgba(200,173,244,.35);text-underline-offset:3px;transition:color .2s,text-decoration-color .2s}
+.hl .hl-sub a::before{display:none}
+.hl .hl-sub .src{color:var(--faint)}
+.hl .hl-sub svg{width:11px;height:11px;margin:0;align-self:center;transform:none}
+.hl .hl-sub a:hover,.hl .hl-sub a:focus-visible{color:var(--amber);text-decoration-color:currentColor}
+.hl .hl-sub a:hover svg,.hl .hl-sub a:focus-visible svg{stroke:var(--amber);transform:translate(1px,-1px)}

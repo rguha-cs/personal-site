@@ -7,7 +7,10 @@
 const HONORS = [
  {title:"First author in peer-reviewed Frontiers in Systems Biology",
   source:"Frontiers in Systems Biology, 2026",
-  href:"https://www.frontiersin.org/journals/systems-biology/articles/10.3389/fsysb.2026.1921636/abstract#metrics"},
+  href:"https://www.frontiersin.org/journals/systems-biology/articles/10.3389/fsysb.2026.1921636/abstract#metrics",
+  sub:{label:"Science news coverage of the paper",
+   source:"Bioengineer.org",
+   href:"https://bioengineer.org/one-wet-lab-measurement-may-be-enough-to-steer-ai-designed-als-gene-silencing-drugs/"}},
  {title:"Presenter at IEEE NER and SfN",
   source:"IEEE Xplore",
   href:"https://ieeexplore.ieee.org/document/11589014"},
