@@ -106,6 +106,28 @@ const TESTIMONIALS = [
    kicker is "Method · Disease area"; the pages split it on " · ". */
 const PROJECTS = [
 {
+  id:"aso",
+  short:"ASO Protein Knockdown Prediction",
+  kicker:"Machine learning · Amyotrophic lateral sclerosis",
+  title:"Biophysics-Informed Computational Framework for Predicting Antisense Oligonucleotide Knockdown Efficacy Under Small-Data Constraints",
+  blurb:"A gradient-boosting model that predicts how well an antisense oligonucleotide will knock down its target, and adapts to a brand-new gene from a single wet-lab measurement instead of a full retraining set.",
+  creds:[
+    {type:"Lab", body:"First author and lead developer on a three-part ALS therapeutic pipeline; Head of Logistics and Dry-Lab Research of DNHS iGEM team"},
+    {type:"Published", body:'Frontiers in Systems Biology (2026), as part of the iGEM–Frontiers 2025 collaboration, <a href="https://www.frontiersin.org/journals/systems-biology/articles/10.3389/fsysb.2026.1921636/abstract#metrics" target="_blank" rel="noopener">doi:10.3389/fsysb.2026.1921636</a>'},
+    {type:"Award", body:"iGEM 2025 Gold Medal, as part of DNHS-San Diego-CA"},
+    {type:"Code", body:'Model documentation on the <a href="https://2025.igem.wiki/dnhs-sandiego-ca/model" target="_blank" rel="noopener">2025 team wiki</a>'},
+  ],
+  abstract:[
+    "A central strategy in treating neurodegenerative disorders, including amyotrophic lateral sclerosis (ALS), is lowering levels of disease-driving proteins. Antisense oligonucleotides (ASOs) offer a direct RNA-targeted approach to reduce protein expression, but experimental discovery and optimization are constrained by small, heterogeneous datasets and target-specific variability. Computational models that predict ASO knockdown efficacy directly from sequence and context could improve candidate selection, yet generalization across gene families and experimental settings remains challenging.",
+    "In this study, we present a biophysics-based computational framework for predicting RNase H-active ASO knockdown efficacy under small-data constraints. We curate and integrate heterogeneous literature-derived ASO efficacy measurements into a unified dataset and evaluate model transfer using independently generated experimental ASOs targeting ALS-relevant genes DAZAP1 and FAM69C. Knockdown efficacy is defined at the transcript level (%KD), providing a mechanistic measure of RNase H-mediated activity. To our knowledge, this is the first framework that combines ASO feature engineering with one-shot family calibration for prediction under realistic small-data conditions.",
+    "We integrate sequence representations with physics-based features capturing RNA-DNA hybridization thermodynamics and targeting RNA accessibility. Compared to sequence-only baselines, this mechanistic feature augmentation reduces external wet-lab prediction error. Despite these gains, uncalibrated predictions exhibit systematic target-family-specific scale bias, which we address using a minimal one-shot family calibration strategy that applies an additive offset derived from a single experimentally measured reference ASO per new target family. One-shot calibration markedly improves absolute prediction accuracy while preserving within-family ranking, without retraining or increasing model complexity.",
+    "Out-of-distribution evaluation shows stable performance for DAZAP1 and increased uncertainty for FAM69C, consistent with the expected effects of very small sample sizes. Permutation-based interpretability analyses show that predictive signal is dominated by global sequence architecture, with thermodynamic and accessibility features providing correlated, secondary contributions. Together, these results establish a computational workflow in which literature-trained models can be transferred to new target genes using minimal experimental input."
+  ],
+  docs:[
+    {label:"Biophysics-Informed Computational Framework", type:"Full paper", kind:"pdf", src:"Documents/iGEM_Paper_1.pdf"}
+  ]
+},
+{
   id:"astrocytes",
   short:"Parkinson's Simulation",
   kicker:"Computational modeling · Parkinson's disease",
@@ -114,7 +136,7 @@ const PROJECTS = [
   creds:[
     {type:"Lab", body:"With Dr. Kazutaka Takahashi, University of Missouri / Ruten Inc."},
     {type:"Published", body:'IEEE Xplore, <em>Simulation Model Characterizing Astrocytic Calcium Wave Propagation in Parkinson\'s Disease</em>, <a href="https://doi.org/10.1109/NER61569.2025.11589014" target="_blank" rel="noopener">doi:10.1109/NER61569.2025.11589014</a>'},
-    {type:"Under review", body:'Frontiers in Neuroscience'},
+    {type:"Published", body:'Accepted for publication in Frontiers in Computational Neuroscience (2026), <a href="https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2026.2009875/abstract" target="_blank" rel="noopener">doi:10.3389/fncom.2026.2009875</a>'},
     {type:"Presented", body:"IEEE EMBS International Conference on Neural Engineering (NER) 2025, San Diego: one of 400 papers accepted internationally"},
     {type:"Presented", body:"Society for Neuroscience, Neuroscience 2025; abstract indexed in conference proceedings. One of fewer than 30 high school students presenting among 10,000 attendees at the largest neuroscience meeting in the world"},
     {type:"Presented", body:'USC Keck School of Medicine Alzheimer\'s Therapeutic Research Institute, <a href="https://atri.usc.edu/alzheimers-research-day-san-diego/" target="_blank" rel="noopener">Alzheimer\'s Research Day</a>. Only high school student invited'},
@@ -160,6 +182,26 @@ const PROJECTS = [
   ]
 },
 {
+  id:"classification",
+  short:"Neurodegenerative Disease Classification",
+  kicker:"Machine learning · Alzheimer's, Parkinson's and Huntington's disease",
+  title:"Decoding Early Neurodegenerative Disease Signatures Through Single-Neuron Morphometry and Multimodal Proteomic Integration for Individual-Level Disease Classification",
+  blurb:"A late-fusion machine-learning framework that reads neuron shape and protein abundance together to tell Alzheimer's, Parkinson's and Huntington's mouse cohorts apart from each other and from healthy controls, reaching 96.67% balanced accuracy on held-out data.",
+  creds:[
+    {type:"Lab", body:"Primary and corresponding author, with Dr. Kazutaka Takahashi, Ruten Inc."},
+    {type:"Under review", body:"Submitted to Frontiers in Bioinformatics (2026)"},
+  ],
+  abstract:[
+    "Early diagnosis of neurodegenerative conditions like Alzheimer's, Parkinson's, and Huntington's disease remains challenging due to the significant overlap between symptomatic, cellular and molecular signatures of these diseases. I developed a late-fusion machine-learning framework integrating independently acquired single-neuron morphological reconstructions and quantitative proteomic profiles to distinguish Alzheimer's, Parkinson's, and Huntington's disease-associated mouse cohorts from each other and from wild-type controls.",
+    "Drawing from 3,398 neuronal reconstructions (across 127 mice) and 390 proteomic profiles from eight independent studies, this model combines 126 structural features (including modeled degeneration patterns) with relative abundance rankings across 536 proteins via probability-based fusion. On held-out evaluation data, the framework achieved a balanced accuracy of 96.67%, an overall accuracy of 92.31%, and a macro F1 score of 0.9044. These performance metrics remained robust across 20 biological-unit-grouped holdout splits and 100 synthetic pairings (mean balanced accuracy of 92.10%), with label-permutation testing confirming statistically significant discrimination (p=0.005).",
+    "By bridging cellular morphology and molecular profiling, this compact two-input approach lays a strong foundation for future clinical tools capable of detecting disease-specific pathology before severe neurodegeneration and symptom onset occur."
+  ],
+  docs:[
+    {label:"Decoding Early Neurodegenerative Disease Signatures", type:"Manuscript in review", kind:"pdf",
+     src:"https://drive.google.com/file/d/1SYMI1KuUd1Xndm0xQqPJLmHG8FZTX2pm/view?usp=sharing", external:"https://drive.google.com/file/d/1SYMI1KuUd1Xndm0xQqPJLmHG8FZTX2pm/view?usp=sharing"}
+  ]
+},
+{
   id:"dna-damage",
   short:"DNA Damage in ALS",
   kicker:"In vitro · Amyotrophic lateral sclerosis",
@@ -177,28 +219,6 @@ const PROJECTS = [
   ],
   docs:[
     {label:"Simons Summer Research Program", type:"Symposium poster", kind:"pdf", src:"Documents/Simons_Poster.pdf"}
-  ]
-},
-{
-  id:"aso",
-  short:"ASO Protein Knockdown Prediction",
-  kicker:"Machine learning · Amyotrophic lateral sclerosis",
-  title:"Biophysics-Informed Computational Framework for Predicting Antisense Oligonucleotide Knockdown Efficacy Under Small-Data Constraints",
-  blurb:"A gradient-boosting model that predicts how well an antisense oligonucleotide will knock down its target, and adapts to a brand-new gene from a single wet-lab measurement instead of a full retraining set.",
-  creds:[
-    {type:"Lab", body:"First author and lead developer on a three-part ALS therapeutic pipeline; Head of Logistics and Dry-Lab Research of DNHS iGEM team"},
-    {type:"Published", body:'Frontiers in Systems Biology (2026), as part of the iGEM–Frontiers 2025 collaboration, <a href="https://www.frontiersin.org/journals/systems-biology/articles/10.3389/fsysb.2026.1921636/abstract#metrics" target="_blank" rel="noopener">doi:10.3389/fsysb.2026.1921636</a>'},
-    {type:"Award", body:"iGEM 2025 Gold Medal, as part of DNHS-San Diego-CA"},
-    {type:"Code", body:'Model documentation on the <a href="https://2025.igem.wiki/dnhs-sandiego-ca/model" target="_blank" rel="noopener">2025 team wiki</a>'},
-  ],
-  abstract:[
-    "A central strategy in treating neurodegenerative disorders, including amyotrophic lateral sclerosis (ALS), is lowering levels of disease-driving proteins. Antisense oligonucleotides (ASOs) offer a direct RNA-targeted approach to reduce protein expression, but experimental discovery and optimization are constrained by small, heterogeneous datasets and target-specific variability. Computational models that predict ASO knockdown efficacy directly from sequence and context could improve candidate selection, yet generalization across gene families and experimental settings remains challenging.",
-    "In this study, we present a biophysics-based computational framework for predicting RNase H-active ASO knockdown efficacy under small-data constraints. We curate and integrate heterogeneous literature-derived ASO efficacy measurements into a unified dataset and evaluate model transfer using independently generated experimental ASOs targeting ALS-relevant genes DAZAP1 and FAM69C. Knockdown efficacy is defined at the transcript level (%KD), providing a mechanistic measure of RNase H-mediated activity. To our knowledge, this is the first framework that combines ASO feature engineering with one-shot family calibration for prediction under realistic small-data conditions.",
-    "We integrate sequence representations with physics-based features capturing RNA-DNA hybridization thermodynamics and targeting RNA accessibility. Compared to sequence-only baselines, this mechanistic feature augmentation reduces external wet-lab prediction error. Despite these gains, uncalibrated predictions exhibit systematic target-family-specific scale bias, which we address using a minimal one-shot family calibration strategy that applies an additive offset derived from a single experimentally measured reference ASO per new target family. One-shot calibration markedly improves absolute prediction accuracy while preserving within-family ranking, without retraining or increasing model complexity.",
-    "Out-of-distribution evaluation shows stable performance for DAZAP1 and increased uncertainty for FAM69C, consistent with the expected effects of very small sample sizes. Permutation-based interpretability analyses show that predictive signal is dominated by global sequence architecture, with thermodynamic and accessibility features providing correlated, secondary contributions. Together, these results establish a computational workflow in which literature-trained models can be transferred to new target genes using minimal experimental input."
-  ],
-  docs:[
-    {label:"Biophysics-Informed Computational Framework", type:"Full paper", kind:"pdf", src:"Documents/iGEM_Paper_1.pdf"}
   ]
 },
 {

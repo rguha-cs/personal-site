@@ -3,7 +3,7 @@ const CRED_ORDER = {"Lab":0, "Published":1, "Under review":2, "Presented":3, "Co
 
 function render(){
   document.getElementById("projnav").innerHTML = PROJECTS.map(p =>
-    `<li><a href="#${p.id}" data-target="${p.id}">${p.short}</a></li>`).join("");
+    `<li><a href="#${p.id}" data-target="${p.id}" title="${p.short}">${p.short}</a></li>`).join("");
 
   document.getElementById("projects").innerHTML = PROJECTS.map(p => {
     const creds = p.creds
@@ -35,9 +35,35 @@ function render(){
 (function init(){
   render();
   const links = [...document.querySelectorAll("#projnav a")];
+  const bar = document.getElementById("projnav"), wrap = bar.parentElement;
+
+  /* project bar: scrolls sideways; edges fade when there is more to see */
+  const edges = () => {
+    wrap.classList.toggle("fade-l", bar.scrollLeft > 4);
+    wrap.classList.toggle("fade-r", bar.scrollLeft + bar.clientWidth < bar.scrollWidth - 4);
+  };
+  bar.addEventListener("scroll", edges, {passive:true});
+  bar.addEventListener("wheel", e => {
+    if(Math.abs(e.deltaY) <= Math.abs(e.deltaX) || bar.scrollWidth <= bar.clientWidth) return;
+    e.preventDefault(); bar.scrollLeft += e.deltaY;
+  }, {passive:false});
+  addEventListener("resize", edges);
+  const reveal = a => {
+    const li = a.parentElement, pad = 48;
+    if(li.offsetLeft < bar.scrollLeft + pad) bar.scrollLeft = li.offsetLeft - pad;
+    else if(li.offsetLeft + li.offsetWidth > bar.scrollLeft + bar.clientWidth - pad)
+      bar.scrollLeft = li.offsetLeft + li.offsetWidth - bar.clientWidth + pad;
+  };
+  edges();
+
   const spy = new IntersectionObserver(es => es.forEach(en => {
     if(!en.isIntersecting) return;
-    links.forEach(a => a.classList.toggle("on", a.dataset.target === en.target.id));
+    links.forEach(a => {
+      const on = a.dataset.target === en.target.id;
+      a.classList.toggle("on", on);
+      if(on){ a.setAttribute("aria-current", "location"); reveal(a); }
+      else a.removeAttribute("aria-current");
+    });
   }), {rootMargin:"-12% 0px -75% 0px"});
   document.querySelectorAll(".proj").forEach(el => spy.observe(el));
   if(location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();

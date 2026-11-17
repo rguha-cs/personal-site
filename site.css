@@ -433,3 +433,29 @@ blockquote.tq footer .date{display:block;color:var(--faint);font-size:.82rem;mar
 .hl .hl-sub svg{width:11px;height:11px;margin:0;align-self:center;transform:none}
 .hl .hl-sub a:hover,.hl .hl-sub a:focus-visible{color:var(--amber);text-decoration-color:currentColor}
 .hl .hl-sub a:hover svg,.hl .hl-sub a:focus-visible svg{stroke:var(--amber);transform:translate(1px,-1px)}
+/* ---------------- research: project bar (scrolls; labels cut with "..."; edges fade) ---------------- */
+.pnav{position:relative;flex:1;min-width:0}
+.pnav #projnav a{display:block;max-width:20ch;overflow:hidden;text-overflow:ellipsis}
+.pnav.fade-r #projnav{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 64px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 64px),transparent)}
+.pnav.fade-l #projnav{-webkit-mask-image:linear-gradient(90deg,transparent,#000 64px);mask-image:linear-gradient(90deg,transparent,#000 64px)}
+.pnav.fade-l.fade-r #projnav{-webkit-mask-image:linear-gradient(90deg,transparent,#000 64px,#000 calc(100% - 64px),transparent);mask-image:linear-gradient(90deg,transparent,#000 64px,#000 calc(100% - 64px),transparent)}
+
+/* ---------------- top bar: Research dropdown ---------------- */
+.tb-row > .tb-links{overflow:visible}
+.has-menu{position:relative;display:flex;align-items:center;gap:2px}
+.has-menu .caret{background:none;border:0;padding:6px 2px 6px 4px;margin:0;color:var(--muted);cursor:pointer;display:grid;place-items:center}
+.has-menu .caret:hover{color:var(--ink)}
+.has-menu .caret svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:1.8;transition:transform .2s}
+.has-menu.open .caret svg{transform:rotate(180deg)}
+.tb-links .menu{display:none;position:absolute;top:100%;left:-14px;z-index:40;min-width:290px;margin:10px 0 0;padding:8px 0;list-style:none;
+  background:var(--raise);border:1px solid var(--line-2);border-radius:6px;box-shadow:0 18px 40px -12px rgba(0,0,0,.65)}
+.tb-links .menu::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.has-menu.open .menu{display:block}
+@media (hover:hover){.has-menu:hover .menu{display:block}}
+.tb-links .menu a{display:block;padding:8px 18px;border:0;font-size:.86rem;color:var(--muted);white-space:nowrap}
+.tb-links .menu a:hover,.tb-links .menu a:focus-visible{color:var(--ink);background:var(--raise-2)}
+.has-menu.shut .menu{display:none!important}
+.tb-row > .tb-links{align-items:center}
+.tb-row > .tb-links > li > a{display:block}
+.tb-links .menu{left:auto;right:-14px}
+@media (max-width:680px){.tb-links .menu{left:-14px;right:auto}}
